@@ -1,0 +1,17 @@
+version: "2.0"
+
+responses:
+  utter_what_info_required:
+    - text: "What sort of information do you need?"
+  utter_ask_field:
+    - text: "In which field are you looking for admission?"
+  utter_ask_grade:
+    - text: "What is your grade in FSc or ICS?"
+  utter_slots_values:
+    - text: "You've submitted the following answers:\n
+              - Field?: {field}\n
+              - Grade?: {grade}"
+  field_cannot_empty:
+    - text: "Field cannot be empty"
+  enter_valid_grade:
+    - text: "Enter any valid grade"

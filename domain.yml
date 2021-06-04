@@ -1,0 +1,107 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - inform
+  - admission
+  - field_type
+  - grade
+
+
+
+
+slots:
+  field:
+    type: categorical
+    influence_conversation: false
+    values:
+      - computer science
+      - software engineering
+      - information technology
+  grade:
+    type: categorical
+    influence_conversation: false
+    values:
+      - A
+      - B
+      - C
+      - D
+      - E
+      - F
+#  field:
+#    type: unfeaturized
+#  grade:
+#    type: unfeaturized
+
+entities:
+  - field
+  - grade
+
+
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_working:
+    - text: "I am working perfectly.."
+
+#  utter_what_info_required:
+#    - text: "What sort of information do you need?"
+#  utter_ask_field:
+#    - text: "In which field are you looking for admission?"
+#  utter_ask_grade:
+#    - text: "What is your grade in FSc or ICS?"
+#  utter_slots_values:
+#    - text: "You've submitted the following answers:\n
+#              - Field?: {field}\n
+#              - Grade?: {grade}"
+#
+#  field_cannot_empty:
+#    - text: "Field cannot be empty"
+#  enter_valid_grade:
+#    - text: "Enter any valid grade"
+
+
+
+
+forms:
+  save_info_form:
+    field:
+      - type: from_entity
+        entity: field
+    grade:
+      - type: from_entity
+        entity: grade
+
+
+actions:
+- validate_save_info_form
+- action_submit_save_info_form
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
