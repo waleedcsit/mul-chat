@@ -1,7 +1,0 @@
-rasa_nlu[spacy]
-nltk
-numpy
-pandas
-scikit-learn
-gunicorn
-tornado
