@@ -44,17 +44,17 @@ def getFieldPackage():
 #             return {"grade": None}
 
 
-# class SubmitForm(Action):
-#
-#     def name(self) -> Text:
-#         return "action_submit_save_info_form"
-#
-#     def run(
-#             self,
-#             dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: DomainDict,
-#     ) -> Dict[Text, Any]:
-#         total = getFieldPackage()
-#         dispatcher.utter_message("Total amount = %s" % total)
-#         return []
+class SubmitForm(Action):
+
+    def name(self) -> Text:
+        return "action_submit_save_info_form"
+
+    def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        total = getFieldPackage()
+        dispatcher.utter_message("Total amount = %s" % total)
+        return []
